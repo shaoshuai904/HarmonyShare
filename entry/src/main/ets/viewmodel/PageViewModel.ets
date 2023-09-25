@@ -8,6 +8,25 @@ import { ListDataSource } from './ListDataSource';
  */
 export class PageViewModel {
   /**
+   * 获取底部导航配置
+   *
+   * @return {Array<TabItemInfo>} tabItems
+   */
+  getTabData(): Array<TabItemData> {
+    let tabTitles: Array<string> = ['首页', '视频', '发现', '消息', '我的']
+    let tabItems: Array<TabItemData> = [];
+    for (let i = 0; i < tabTitles.length; i++) {
+      let tabItem: TabItemData = new TabItemData();
+      tabItem.index = i;
+      tabItem.imageOriginal = $r('app.media.ic_normal');
+      tabItem.imageActivated = $r('app.media.ic_activated');
+      tabItem.title = tabTitles[i]; //.$r('app.string.tab_title');
+      tabItems.push(tabItem);
+    }
+    return tabItems;
+  }
+
+  /**
    * Get data sources required by the LazyForEach interface.
    *
    * @return {ListDataSource} new ListDataSource(listItems)
@@ -27,30 +46,13 @@ export class PageViewModel {
   }
 
   /**
-   * Get item information for the tab.
-   *
-   * @return {Array<TabItemInfo>} tabItems
-   */
-  getTabData(): Array<TabItemData> {
-    let tabItems: Array<TabItemData> = [];
-    for (let i = 0; i < CommonConstants.TAB_SIZE; i++) {
-      let itemInfo: TabItemData = new TabItemData();
-      itemInfo.imageOriginal = $r('app.media.ic_normal');
-      itemInfo.imageActivated = $r('app.media.ic_activated');
-      itemInfo.title = $r('app.string.tab_title');
-      tabItems.push(itemInfo);
-    }
-    return tabItems;
-  }
-
-  /**
    * Get detail list Data.
    *
    * @return {Array<ListItemData>} listItems
    */
   getDetailListData(): Array<ListItemData> {
     let listItems: Array<ListItemData> = [];
-    for (let i = 0; i < CommonConstants.DETAIL_PAGE_LIST_SIZE; i++) {
+    for (let i = 0; i < 4; i++) {
       let itemInfo: ListItemData = new ListItemData();
       itemInfo.title = $r('app.string.detail_page_list_title');
       itemInfo.summary = $r('app.string.list_item_summary');

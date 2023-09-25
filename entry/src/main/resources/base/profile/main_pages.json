@@ -1,5 +1,11 @@
 {
   "src": [
+    "pages/MainPage",
+    "pages/FeedPage",
+    "pages/VideoPage",
+    "pages/DiscoverPage",
+    "pages/MessagePage",
+    "pages/MePage",
     "pages/ListPage",
     "pages/DetailPage"
   ]

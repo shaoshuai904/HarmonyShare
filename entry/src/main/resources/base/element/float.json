@@ -5,6 +5,34 @@
       "value": "30fp"
     },
     {
+      "name": "bar_height",
+      "value": "56vp"
+    },
+    {
+      "name": "bar_width",
+      "value": "96vp"
+    },
+    {
+      "name": "tab_title_image",
+      "value": "21vp"
+    },
+    {
+      "name": "tab_title_size",
+      "value": "20fp"
+    },
+    {
+      "name": "tab_image_margin_top",
+      "value": "4vp"
+    },
+    {
+      "name": "tab_image_margin_bottom",
+      "value": "5.5vp"
+    },
+    {
+      "name": "tab_text_size",
+      "value": "10fp"
+    },
+    {
       "name": "image_star_height",
       "value": "24vp"
     },
@@ -69,10 +97,6 @@
       "value": "5vp"
     },
     {
-      "name": "tab_text_size",
-      "value": "10fp"
-    },
-    {
       "name": "list_divider_start_margin",
       "value": "45vp"
     },
@@ -127,14 +151,6 @@
     {
       "name": "list_radius",
       "value": "24vp"
-    },
-    {
-      "name": "bar_height",
-      "value": "56vp"
-    },
-    {
-      "name": "bar_width",
-      "value": "96vp"
     },
     {
       "name": "grid_row_margin",

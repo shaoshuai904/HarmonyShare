@@ -3,6 +3,10 @@
  */
 export class TabItemData {
   /**
+   * Tab index.
+   */
+  index: number = 0;
+  /**
    * Original image of the tabs.
    */
   imageOriginal: Resource = $r('app.media.ic_normal');
@@ -15,5 +19,5 @@ export class TabItemData {
   /**
    * Tab title.
    */
-  title: Resource = $r('app.string.tab_title');
+  title: string = '';// $r('app.string.tab_title');
 }

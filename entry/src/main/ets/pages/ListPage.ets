@@ -16,22 +16,6 @@ struct ListPage {
   @State currentTabIndex: number = 0;
   @State breakPoint: string = CommonConstants.BREAK_POINT_XS;
 
-  @Builder BuildTabs(item: TabItemData, index?: number) {
-    Column() {
-      Image(this.currentTabIndex === index ? item.imageActivated : item.imageOriginal)
-        .width($r('app.float.image_star_width'))
-        .height($r('app.float.image_star_height'))
-      Text(item.title)
-        .margin({ top: $r('app.float.tab_text_margin_top') })
-        .fontSize($r('app.float.tab_text_size'))
-        .fontColor(this.currentTabIndex === index ?
-		  $r('app.color.tab_text_activated') : $r('app.color.tab_text_normal'))
-    }
-    .justifyContent(FlexAlign.Center)
-    .width(CommonConstants.TABS_WIDTH_PERCENT)
-    .height($r('app.float.tab_bar_height'))
-  }
-
   build() {
     Column() {
       Tabs({
@@ -118,6 +102,22 @@ struct ListPage {
       })
     }
     .backgroundColor($r('app.color.theme_background'))
+  }
+
+  @Builder BuildTabs(item: TabItemData, index?: number) {
+    Column() {
+      Image(this.currentTabIndex === index ? item.imageActivated : item.imageOriginal)
+        .width($r('app.float.image_star_width'))
+        .height($r('app.float.image_star_height'))
+      Text(item.title)
+        .margin({ top: $r('app.float.tab_text_margin_top') })
+        .fontSize($r('app.float.tab_text_size'))
+        .fontColor(this.currentTabIndex === index ?
+        $r('app.color.tab_text_activated') : $r('app.color.tab_text_normal'))
+    }
+    .justifyContent(FlexAlign.Center)
+    .width(CommonConstants.TABS_WIDTH_PERCENT)
+    .height($r('app.float.tab_bar_height'))
   }
 
   @Builder Title() {
