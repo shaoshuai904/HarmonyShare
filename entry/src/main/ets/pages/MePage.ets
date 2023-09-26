@@ -1,5 +1,5 @@
-import { DetailListComponent } from '../view/DetailListComponent';
 import { BackTitleBar } from '../view/BackTitleBar';
+import { ListAreaComponent } from '../view/ListAreaComponent';
 
 /**
  * 我的 页面.
@@ -12,10 +12,11 @@ export struct MePage {
   build() {
     Column() {
       BackTitleBar({ title: this.titleParam })
-      DetailListComponent()
+      ListAreaComponent()
     }
     .width('100%')
     .height('100%')
     .backgroundColor($r('app.color.detail_page_background'))
   }
+
 }

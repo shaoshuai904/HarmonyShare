@@ -15,6 +15,7 @@ export struct ListAreaComponent {
         LazyForEach(PageViewModel.getListDataSource(), (item: ListItemData) => {
           ListItem() {
             ListItemComponent({ itemInfo: item })
+              .padding({ left: 20, right: 10 })
           }
           .onClick(() => {
             router.pushUrl({
