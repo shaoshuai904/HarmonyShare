@@ -39,6 +39,14 @@
     {
       "name": "detail_default_title",
       "value": "Default title"
+    },
+    {
+      "name": "tab_feed",
+      "value": "Feed"
+    },
+    {
+      "name": "tab_video",
+      "value": "Video"
     }
   ]
 }

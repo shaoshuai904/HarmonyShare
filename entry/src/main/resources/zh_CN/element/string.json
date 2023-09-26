@@ -39,6 +39,14 @@
     {
       "name": "detail_default_title",
       "value": "默认标题"
+    },
+    {
+      "name": "tab_feed",
+      "value": "首页"
+    },
+    {
+      "name": "tab_video",
+      "value": "视频"
     }
   ]
 }

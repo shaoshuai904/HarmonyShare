@@ -13,7 +13,7 @@ export class PageViewModel {
    * @return {Array<TabItemInfo>} tabItems
    */
   getTabData(): Array<TabItemData> {
-    let tabTitles: Array<string> = ['首页', '视频', '发现', '消息', '我的']
+    let tabTitles: Array<string | Resource> = [$r("app.string.tab_feed"), $r("app.string.tab_video"), '发现', '消息', '我的']
     let tabItems: Array<TabItemData> = [];
     for (let i = 0; i < tabTitles.length; i++) {
       let tabItem: TabItemData = new TabItemData();

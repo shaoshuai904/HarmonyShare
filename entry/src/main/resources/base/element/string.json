@@ -1,6 +1,14 @@
 {
   "string": [
     {
+      "name": "tab_feed",
+      "value": "Feed"
+    },
+    {
+      "name": "tab_video",
+      "value": "Video"
+    },
+    {
       "name": "module_desc",
       "value": "This module template implements List functions."
     },
