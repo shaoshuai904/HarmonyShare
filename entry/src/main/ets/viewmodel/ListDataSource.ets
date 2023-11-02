@@ -5,7 +5,7 @@ import { ListItemData } from '../common/bean/ListItemData';
  */
 export class ListDataSource implements IDataSource {
   private listItems: Array<ListItemData> = [];
-  private listener: DataChangeListener | null = null;;
+  private listener: DataChangeListener | null = null;
 
   constructor(list: Array<ListItemData>) {
     this.listItems = list;

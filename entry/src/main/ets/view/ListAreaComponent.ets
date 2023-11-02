@@ -19,15 +19,13 @@ export struct ListAreaComponent {
           }
           .onClick(() => {
             router.pushUrl({
-              url: CommonConstants.PAGE_NAME,
-              params: {
-                data: item.title
-              }
+              url: 'pages/DetailPage',
+              params: { data: item.title }
             });
           })
         }, (item: ListItemData, index?: number) => index + JSON.stringify(item))
       }
-      .width(CommonConstants.LIST_WIDTH_PERCENT)
+      .width('100%')
       .divider({
         strokeWidth: $r('app.float.divider_height'),
         color: $r('app.color.list_divider'),
@@ -35,6 +33,6 @@ export struct ListAreaComponent {
         endMargin: $r('app.float.list_divider_end_margin')
       })
     }
-    .width(CommonConstants.COLUMN_WIDTH_PERCENT)
+    .width('100%')
   }
 }

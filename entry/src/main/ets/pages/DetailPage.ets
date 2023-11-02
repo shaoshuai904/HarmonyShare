@@ -27,22 +27,22 @@ struct DetailPage {
           reference: BreakpointsReference.WindowSize
         },
         columns: {
-          sm: CommonConstants.COLUMN_SM,
-          md: CommonConstants.COLUMN_MD,
-          lg: CommonConstants.COLUMN_LG
+          sm: 4,
+          md: 8,
+          lg: 12
         },
         gutter: { x: CommonConstants.GUTTER_X },
         direction: GridRowDirection.Row
       }) {
         GridCol({
           span: {
-            sm: CommonConstants.SPAN_SM,
-            md: CommonConstants.SPAN_MD,
-            lg: CommonConstants.SPAN_LG
+            sm: 4,
+            md: 6,
+            lg: 8
           },
           offset: {
-            md: CommonConstants.OFFSET_MD,
-            lg: CommonConstants.OFFSET_LG
+            md: 1,
+            lg: 2
           }
         }) {
           DetailListComponent()
@@ -53,8 +53,8 @@ struct DetailPage {
         })
       }
     }
-    .width(CommonConstants.COLUMN_WIDTH_PERCENT)
-    .height(CommonConstants.COLUMN_HEIGHT_PERCENT)
+    .width('100%')
+    .height('100%')
     .backgroundColor($r('app.color.detail_page_background'))
   }
 
@@ -75,7 +75,7 @@ struct DetailPage {
         .fontColor($r('app.color.title'))
         .fontSize($r('app.float.detail_title'))
     }
-    .width(CommonConstants.FULL_WIDTH_PERCENT)
+    .width('100%')
     .height($r('app.float.title_height'))
   }
 }

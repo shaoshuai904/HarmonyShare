@@ -7,11 +7,11 @@ export class TabItemData {
    */
   index: number = 0;
   /**
-   * Original image of the tabs.
+   * Tab 默认icon.
    */
   imageOriginal: Resource = $r('app.media.ic_normal');
   /**
-   * Active image of the tabs.This image is displayed when you click the tab.
+   * Tab 选中icon.
    */
   imageActivated: Resource = $r('app.media.ic_activated');
   /**

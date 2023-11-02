@@ -11,11 +11,11 @@ class Logger {
   }
 
   debug(msg: string) {
-    hilog.debug(this.domain, this.prefix, this.format, msg)
+    hilog.debug(0x0000, this.prefix, this.format, msg)
   }
 
   info(msg: string) {
-    hilog.info(this.domain, this.prefix, this.format, msg)
+    hilog.info(0xFF00, this.prefix, this.format, msg)
   }
 
   warn(msg: string) {

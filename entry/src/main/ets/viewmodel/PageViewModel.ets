@@ -20,7 +20,7 @@ export class PageViewModel {
       tabItem.index = i;
       tabItem.imageOriginal = $r('app.media.ic_normal');
       tabItem.imageActivated = $r('app.media.ic_activated');
-      tabItem.title = tabTitles[i]; //.$r('app.string.tab_title');
+      tabItem.title = tabTitles[i];
       tabItems.push(tabItem);
     }
     return tabItems;

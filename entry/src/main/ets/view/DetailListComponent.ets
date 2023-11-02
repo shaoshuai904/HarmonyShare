@@ -1,6 +1,5 @@
 import PageViewModel from '../viewmodel/PageViewModel';
 import { ListItemData } from '../common/bean/ListItemData';
-import { CommonConstants } from '../common/constants/CommonConstants';
 
 /**
  * Detail page list component.
@@ -21,18 +20,18 @@ export struct DetailListComponent {
                 .fontSize($r('app.float.list_item_sub_title'))
                 .fontColor($r('app.color.list_item_sub_title'))
             }
-            .width(CommonConstants.ROW_WIDTH_PERCENT)
+            .width('100%')
             .height($r('app.float.detail_list_item_height'))
           }
         }, (item: ListItemData, index?: number) => index + JSON.stringify(item));
       }
-      .width(CommonConstants.LIST_WIDTH_PERCENT)
+      .width('100%')
       .divider({
         strokeWidth: $r('app.float.divider_height'),
         color: $r('app.color.list_divider')
       })
     }
-    .width(CommonConstants.LIST_WIDTH_PERCENT)
+    .width('100%')
     .padding({
       top: $r('app.float.detail_list_padding_vertical'),
       bottom: $r('app.float.detail_list_padding_vertical'),
