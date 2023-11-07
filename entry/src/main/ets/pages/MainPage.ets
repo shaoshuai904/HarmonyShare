@@ -1,4 +1,3 @@
-import { CommonConstants } from '../common/constants/CommonConstants';
 import { TabItemData } from '../common/bean/TabItemData';
 import PageViewModel from '../viewmodel/PageViewModel';
 import Logger from '../utils/Logger';
@@ -15,7 +14,6 @@ import { MePage } from './MePage';
 @Component
 struct MainPage {
   @State currentTabIndex: number = 0;
-  @State breakPoint: string = CommonConstants.BREAK_POINT_XS;
   // 底部导航 是水平的 还是竖直的
   @State verticalTabs: boolean = false;
 

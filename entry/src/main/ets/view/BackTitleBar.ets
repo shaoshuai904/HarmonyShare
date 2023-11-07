@@ -1,34 +1,30 @@
 import router from '@ohos.router';
-import { CommonConstants } from '../common/constants/CommonConstants';
 
 /**
  * 返回箭头标题栏目.
  */
 @Component
 export struct BackTitleBar {
-  private title: string = '标题';
+  private title: string | Resource = '标题';
 
   build() {
     Column() {
       Row() {
         Image($r('app.media.ic_back'))
-          .width($r('app.float.image_size'))
-          .height($r('app.float.image_size'))
-          .margin({
-            left: $r('app.float.image_margin_left'),
-            right: $r('app.float.image_margin_right')
-          })
+          .width('24vp')
+          .height('24vp')
+          .margin({ left: '24vp', right: '24vp' })
           .onClick(() => {
             router.back();
           })
 
         Text(this.title)
-          .fontColor($r('app.color.title'))
-          .fontSize($r('app.float.detail_title'))
+          .fontColor('#FF000000')
+          .fontSize('20fp')
       }
-      .width(CommonConstants.FULL_WIDTH_PERCENT)
-      .height($r('app.float.title_height'))
+      .width('100%')
+      .height('56vp')
     }
-    .width(CommonConstants.COLUMN_WIDTH_PERCENT)
+    .width('100%')
   }
 }

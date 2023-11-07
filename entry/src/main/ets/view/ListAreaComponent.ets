@@ -1,5 +1,4 @@
 import router from '@ohos.router';
-import { CommonConstants } from '../common/constants/CommonConstants';
 import { ListItemData } from '../common/bean/ListItemData';
 import { ListItemComponent } from './ListItemComponent';
 import PageViewModel from '../viewmodel/PageViewModel';
@@ -27,10 +26,10 @@ export struct ListAreaComponent {
       }
       .width('100%')
       .divider({
-        strokeWidth: $r('app.float.divider_height'),
+        strokeWidth: '0.5vp',
         color: $r('app.color.list_divider'),
-        startMargin: $r('app.float.list_divider_start_margin'),
-        endMargin: $r('app.float.list_divider_end_margin')
+        startMargin: '45vp',
+        endMargin: '8vp'
       })
     }
     .width('100%')

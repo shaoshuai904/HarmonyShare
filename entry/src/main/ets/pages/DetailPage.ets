@@ -1,6 +1,7 @@
 import router from '@ohos.router';
 import { DetailListComponent } from '../view/DetailListComponent';
 import { CommonConstants } from '../common/constants/CommonConstants';
+import { BackTitleBar } from '../view/BackTitleBar';
 
 /**
  * Detail page to display more information.
@@ -19,63 +20,31 @@ struct DetailPage {
 
   build() {
     Column() {
-      this.Title()
+      BackTitleBar({ title: this.titleParam })
 
       GridRow({
         breakpoints: {
-          value: CommonConstants.BREAK_POINTS_VALUE,
+          value: ['320vp', '600vp', '840vp'],
           reference: BreakpointsReference.WindowSize
         },
-        columns: {
-          sm: 4,
-          md: 8,
-          lg: 12
-        },
-        gutter: { x: CommonConstants.GUTTER_X },
+        columns: { sm: 4, md: 8, lg: 12 },
+        gutter: { x: vp2px(24) },
         direction: GridRowDirection.Row
       }) {
         GridCol({
-          span: {
-            sm: 4,
-            md: 6,
-            lg: 8
-          },
-          offset: {
-            md: 1,
-            lg: 2
-          }
+          span: { sm: 4, md: 6, lg: 8 },
+          offset: { md: 1, lg: 2 }
         }) {
           DetailListComponent()
         }
         .margin({
-          left: $r('app.float.detail_grid_row_margin'),
-          right: $r('app.float.detail_grid_row_margin')
+          left: '12vp',
+          right: '12vp'
         })
       }
     }
     .width('100%')
     .height('100%')
     .backgroundColor($r('app.color.detail_page_background'))
-  }
-
-  @Builder Title() {
-    Row() {
-      Image($r('app.media.ic_back'))
-        .width($r('app.float.image_size'))
-        .height($r('app.float.image_size'))
-        .margin({
-          left: $r('app.float.image_margin_left'),
-          right: $r('app.float.image_margin_right')
-        })
-        .onClick(() => {
-          router.back();
-        })
-
-      Text(this.titleParam)
-        .fontColor($r('app.color.title'))
-        .fontSize($r('app.float.detail_title'))
-    }
-    .width('100%')
-    .height($r('app.float.title_height'))
   }
 }

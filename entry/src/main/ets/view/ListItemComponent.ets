@@ -1,5 +1,4 @@
 import { ListItemData } from '../common/bean/ListItemData';
-import { CommonConstants } from '../common/constants/CommonConstants';
 
 /**
  * List item information component.
@@ -12,44 +11,38 @@ export struct ListItemComponent {
     Row() {
       Image(this.itemInfo.image)
         .objectFit(ImageFit.Contain)
-        .width($r('app.float.image_star_width'))
-        .height($r('app.float.image_star_height'))
-        .margin({
-          right: $r('app.float.list_image_margin_right')
-        })
+        .width('24vp')
+        .height('24vp')
+        .margin({ right: '15vp' })
       Column() {
         Text(this.itemInfo.title)
-          .fontSize($r('app.float.list_item_title'))
+          .fontSize('16fp')
           .fontColor($r('app.color.list_item_title'))
-          .maxLines(CommonConstants.LIST_TITLE_MAX_LINES)
+          .maxLines(1)
           .textOverflow({
             overflow: TextOverflow.Ellipsis
           })
         Text(this.itemInfo.subTitle)
-          .fontSize($r('app.float.list_item_sub_title'))
+          .fontSize('14vp')
           .fontColor($r('app.color.list_item_sub_title'))
-          .maxLines(CommonConstants.LIST_TITLE_MAX_LINES)
+          .maxLines(1)
           .textOverflow({
             overflow: TextOverflow.Ellipsis
           })
-          .margin({
-            top: $r('app.float.sub_title_margin_top')
-          })
+          .margin({ top: '5vp' })
       }
-      .layoutWeight(CommonConstants.LIST_TITLE_LAYOUT_WEIGHT)
+      .layoutWeight(1)
       .alignItems(HorizontalAlign.Start)
 
       Text(this.itemInfo.summary)
-        .fontSize($r('app.float.list_item_summary'))
-        .margin({
-          right: $r('app.float.list_summary_margin_right')
-        })
+        .fontSize('14fp')
+        .margin({ right: '4vp' })
         .fontColor($r('app.color.list_item_sub_title'))
       Image(this.itemInfo.rightArrowImage)
         .objectFit(ImageFit.Contain)
-        .width($r('app.float.image_right_arrow_width'))
-        .height($r('app.float.image_right_arrow_height'))
+        .width('12vp')
+        .height('24vp')
     }
-    .height($r('app.float.list_item_height'))
+    .height('60vp')
   }
 }

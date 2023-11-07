@@ -1,4 +1,3 @@
-import { CommonConstants } from '../common/constants/CommonConstants';
 import { ListItemData } from '../common/bean/ListItemData';
 import { TabItemData } from '../common/bean/TabItemData';
 import { ListDataSource } from './ListDataSource';
@@ -33,7 +32,7 @@ export class PageViewModel {
    */
   getListDataSource(): ListDataSource {
     let listItems: Array<ListItemData> = [];
-    for (let i = 0; i < CommonConstants.LIST_SIZE; i++) {
+    for (let i = 0; i < 20; i++) {
       let itemInfo: ListItemData = new ListItemData();
       itemInfo.image = $r('app.media.ic_normal');
       itemInfo.title = $r('app.string.list_item_title');

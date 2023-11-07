@@ -13,33 +13,33 @@ export struct DetailListComponent {
           ListItem() {
             Row() {
               Text(item.title)
-                .fontSize($r('app.float.list_item_title'))
+                .fontSize('16fp')
                 .fontColor($r('app.color.list_item_title'))
               Blank()
               Text(item.summary)
-                .fontSize($r('app.float.list_item_sub_title'))
+                .fontSize('14vp')
                 .fontColor($r('app.color.list_item_sub_title'))
             }
             .width('100%')
-            .height($r('app.float.detail_list_item_height'))
+            .height('48vp')
           }
         }, (item: ListItemData, index?: number) => index + JSON.stringify(item));
       }
       .width('100%')
       .divider({
-        strokeWidth: $r('app.float.divider_height'),
+        strokeWidth: '0.5vp',
         color: $r('app.color.list_divider')
       })
     }
-    .width('100%')
+    .width('92%')
     .padding({
-      top: $r('app.float.detail_list_padding_vertical'),
-      bottom: $r('app.float.detail_list_padding_vertical'),
-      left: $r('app.float.detail_list_padding_horizontal'),
-      right: $r('app.float.detail_list_padding_horizontal')
+      top: '4vp',
+      bottom: '4vp',
+      left: '12vp',
+      right: '12vp'
     })
-    .margin({ top: $r('app.float.list_margin_top') })
+    .margin({ top: '8vp' })
     .backgroundColor($r('app.color.list_content_background'))
-    .borderRadius($r('app.float.list_radius'))
+    .borderRadius('16vp')
   }
 }
