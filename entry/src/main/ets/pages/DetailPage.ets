@@ -2,6 +2,7 @@ import router from '@ohos.router';
 import { DetailListComponent } from '../view/DetailListComponent';
 import { CommonConstants } from '../common/constants/CommonConstants';
 import { BackTitleBar } from '../view/BackTitleBar';
+import Logger from '../utils/Logger';
 
 /**
  * Detail page to display more information.
@@ -20,7 +21,13 @@ struct DetailPage {
 
   build() {
     Column() {
-      BackTitleBar({ title: this.titleParam })
+      BackTitleBar({
+        title: this.titleParam,
+        onBackClick: () => {
+          Logger.info('DetailPage onBackClick ')
+          router.back();
+        }
+      })
 
       GridRow({
         breakpoints: {

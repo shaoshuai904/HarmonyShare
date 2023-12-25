@@ -6,6 +6,10 @@ import router from '@ohos.router';
 @Component
 export struct BackTitleBar {
   private title: string | Resource = '标题';
+  private onBackClick: Function = () => {
+    // Logger.info('BackTitleBar onBackClick ')
+    router.back();
+  };
 
   build() {
     Column() {
@@ -15,7 +19,7 @@ export struct BackTitleBar {
           .height('24vp')
           .margin({ left: '24vp', right: '24vp' })
           .onClick(() => {
-            router.back();
+            this.onBackClick();
           })
 
         Text(this.title)

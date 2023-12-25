@@ -54,7 +54,6 @@ struct MainPage {
                     MePage()
                   }
                 }
-
                 // .justifyContent(FlexAlign.Center)
                 // .width('100%')
                 // .height('100%')
@@ -74,7 +73,7 @@ struct MainPage {
       .barWidth(this.verticalTabs ? '66vp' : '100%')
       .barHeight(this.verticalTabs ? '100%' : '56vp')
       .layoutWeight(1)
-      // .margin({ top: $r('app.float.tab_margin_top') })
+      // .margin({ top: "8vp" })
       // .backgroundColor($r('app.color.tab_bar_background'))
       .barMode(BarMode.Fixed)
       .align(Alignment.Center)
@@ -90,15 +89,15 @@ struct MainPage {
   CardTab(item: TabItemData) {
     Column() {
       Image(this.currentTabIndex === item.index ? item.imageActivated : item.imageOriginal)
-        .width($r('app.float.tab_title_image'))
-        .height($r('app.float.tab_title_image'))
+        .width("21vp")
+        .height("21vp")
         .objectFit(ImageFit.Contain)
         .margin({
-          top: $r('app.float.tab_image_margin_top'),
-          bottom: $r('app.float.tab_image_margin_bottom')
+          top: "4vp",
+          bottom: "5.5vp"
         })
       Text(item.title)
-        .fontSize($r('app.float.tab_text_size'))
+        .fontSize("10fp")
         .fontColor(this.currentTabIndex === item.index ? $r('app.color.tab_text_activated') : $r('app.color.tab_text_normal'))
     }
     .justifyContent(FlexAlign.Center)
