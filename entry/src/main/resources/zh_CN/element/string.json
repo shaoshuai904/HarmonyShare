@@ -1,6 +1,14 @@
 {
   "string": [
     {
+      "name": "tab_feed",
+      "value": "首页"
+    },
+    {
+      "name": "tab_video",
+      "value": "视频"
+    },
+    {
       "name": "module_desc",
       "value": "该模板实现了列表页的功能"
     },
@@ -39,14 +47,6 @@
     {
       "name": "detail_default_title",
       "value": "默认标题"
-    },
-    {
-      "name": "tab_feed",
-      "value": "首页"
-    },
-    {
-      "name": "tab_video",
-      "value": "视频"
     }
   ]
 }

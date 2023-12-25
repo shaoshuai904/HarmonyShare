@@ -102,7 +102,7 @@ export struct MessagePage {
   buildKVDemo() {
     Column() {
       Row() {
-        Image($r('app.media.startIcon'))
+        Image($r("app.media.app_icon"))
           .height(30)
           .layoutWeight(1)
           .objectFit(ImageFit.ScaleDown)
