@@ -1,46 +1,67 @@
 import AbilityConstant from '@ohos.app.ability.AbilityConstant';
-import hilog from '@ohos.hilog';
 import UIAbility from '@ohos.app.ability.UIAbility';
 import Want from '@ohos.app.ability.Want';
 import window from '@ohos.window';
+import { GlobalContext } from '../common/constants/GlobalContext';
+import Logger from '../utils/Logger';
 
 /**
+ * 应用程序主入口
  * Lift cycle management of Ability.
  */
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
-    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
+    GlobalContext.getContext()
+      .setObject("want", want)
+      .setObject("launchParam", launchParam)
+
+    Logger.info('EntryAbility Ability onCreate');
   }
 
-  onDestroy(): void {
-    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onDestroy');
+  onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam) {
+    GlobalContext.getContext()
+      .setObject('abilityWant', want)
+      .setObject('launchParam', launchParam);
   }
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
-    // Main window is created, set main page for this ability
-    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
+    GlobalContext.getContext()
+      .setObject("isForeground", true)
 
-    windowStage.loadContent("pages/MainPage", (err, data) => {
+    // Main window is created, set main page for this ability
+    Logger.info('EntryAbility Ability onWindowStageCreate');
+
+    windowStage.loadContent("pages/SplashPage", (err, data) => {
       if (err.code) {
-        hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
+        Logger.info(`Failed to load the content. Cause: ${JSON.stringify(err) ?? ''}`);
         return;
       }
-      hilog.info(0x0000, 'testTag', 'Succeeded in loading the content. Data: %{public}s', JSON.stringify(data) ?? '');
+      Logger.info(`Succeeded in loading the content. Data: ${JSON.stringify(data) ?? ''}`);
     });
+  }
+
+  onForeground(): void {
+    GlobalContext.getContext()
+      .setObject("isForeground", true)
+      .setObject("taskListChange", false)
+    // Ability has brought to foreground
+    Logger.info('EntryAbility Ability onForeground');
+  }
+
+  onBackground(): void {
+    // 页面回退时，可以做一些数据更新保存操作
+    // FormUtils.backgroundUpdateCard(GlobalContext.getContext().getObject('taskListChange') as boolean);
+
+    // Ability has back to background
+    Logger.info('EntryAbility Ability onBackground');
   }
 
   onWindowStageDestroy(): void {
     // Main window is destroyed, release UI related resources
-    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
+    Logger.info('EntryAbility Ability onWindowStageDestroy');
   }
 
-  onForeground(): void {
-    // Ability has brought to foreground
-    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onForeground');
-  }
-
-  onBackground(): void {
-    // Ability has back to background
-    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onBackground');
+  onDestroy(): void {
+    Logger.info('EntryAbility Ability onDestroy');
   }
 }

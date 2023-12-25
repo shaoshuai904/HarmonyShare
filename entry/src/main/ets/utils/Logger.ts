@@ -5,17 +5,17 @@ class Logger {
   private prefix: string
   private format: string = '%{public}s'
 
-  constructor(prefix: string) {
+  constructor(prefix: string = '', domain: number = 0xFF02) {
     this.prefix = prefix
-    this.domain = 0xFF00
+    this.domain = domain
   }
 
   debug(msg: string) {
-    hilog.debug(0x0000, this.prefix, this.format, msg)
+    hilog.debug(this.domain, this.prefix, this.format, msg)
   }
 
   info(msg: string) {
-    hilog.info(0xFF00, this.prefix, this.format, msg)
+    hilog.info(this.domain, this.prefix, this.format, msg)
   }
 
   warn(msg: string) {
