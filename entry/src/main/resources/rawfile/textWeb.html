@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+1234
+<button onclick="htmlTest1()">调用 Web 组件里面的方法</button>
+<button onclick="htmlTest2()">调用 Web 组件里面的方法</button>
+</body>
+<script type="text/javascript">
+    console.info('info message');
+    console.error('error message');
+<!--    confirm("confirm message from html")-->
+</script>
+<script type="text/javascript">
+  function test() {
+      return "This value is from index.html"
+  }
+</script>
+<script type="text/javascript">
+    function htmlTest1() {
+        str = objName.method1("param from Html");
+    }
+</script>
+<script type="text/javascript">
+    function htmlTest2() {
+        str = objName.method2();
+    }
+</script>
+</html>

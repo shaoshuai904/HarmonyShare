@@ -7,6 +7,7 @@
     "pages/DiscoverPage",
     "pages/MessagePage",
     "pages/MePage",
+    "pages/WebPage",
     "pages/DetailPage"
   ]
 }
