@@ -1,73 +1,57 @@
-import { Context } from '@ohos.abilityAccessCtrl'
-import preferences from '@ohos.data.preferences'
-
-let preferenceTheme: preferences.Preferences | null = null
+import { Context } from '@ohos.abilityAccessCtrl';
+import preferences from '@ohos.data.preferences';
 
 export class BaseKV {
+  private context: Context;
+  private fileName: string;
+
   constructor(context: Context, fileName: string) {
-    this.getPreferencesFromStorage(context, fileName)
+    this.context = context;
+    this.fileName = fileName;
   }
 
-  async getPreferencesFromStorage(context: Context, fileName: string) {
-    preferenceTheme = await preferences.getPreferences(context, fileName)
+  getKVM(): Promise<preferences.Preferences> {
+    return preferences.getPreferences(this.context, this.fileName);
   }
 
   async put(key: string, value: preferences.ValueType) {
-    if (preferenceTheme !== null) {
-      await preferenceTheme.put(key, value)
-      await preferenceTheme.flush()
-    }
+    let kvm = await this.getKVM();
+    await kvm.put(key, value);
+    await kvm.flush();
   }
 
   async get(key: string, defValue: preferences.ValueType): Promise<preferences.ValueType> {
-    if (preferenceTheme !== null) {
-      return await preferenceTheme.get(key, defValue)
-    }
-    return defValue
+    let kvm = await this.getKVM();
+    return await kvm.get(key, defValue);
   }
 
   // string
   async putString(key: string, value: string) {
-    if (preferenceTheme !== null) {
-      await preferenceTheme.put(key, value)
-      await preferenceTheme.flush()
-    }
+    this.put(key, value);
   }
 
   async getString(key: string, defValue: string): Promise<string> {
-    if (preferenceTheme !== null) {
-      return await preferenceTheme.get(key, defValue) as string
-    }
-    return defValue
+    let kvm = await this.getKVM();
+    return await kvm.get(key, defValue) as string;
   }
 
   // boolean
   async putBoolean(key: string, value: boolean) {
-    if (preferenceTheme !== null) {
-      await preferenceTheme.put(key, value)
-      await preferenceTheme.flush()
-    }
+    this.put(key, value);
   }
 
   async getBoolean(key: string, defValue: boolean): Promise<boolean> {
-    if (preferenceTheme !== null) {
-      return await preferenceTheme.get(key, defValue) as boolean
-    }
-    return defValue
+    let kvm = await this.getKVM();
+    return await kvm.get(key, defValue) as boolean;
   }
 
   // int
   async putNumber(key: string, value: number) {
-    if (preferenceTheme !== null) {
-      await preferenceTheme.put(key, value)
-      await preferenceTheme.flush()
-    }
+    this.put(key, value);
   }
 
   async getNumber(key: string, defValue: number): Promise<number> {
-    if (preferenceTheme !== null) {
-      return await preferenceTheme.get(key, defValue) as number
-    }
-    return defValue
+    let kvm = await this.getKVM();
+    return await kvm.get(key, defValue) as number;
   }
 }

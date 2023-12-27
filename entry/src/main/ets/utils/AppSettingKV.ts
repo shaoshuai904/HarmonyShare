@@ -28,14 +28,15 @@ export class AppSettingKV {
   }
 
   public static getInstance(context: Context): AppSettingKV {
-    if (!AppSettingKV.instance) {
-      AppSettingKV.instance = new AppSettingKV(context);
+    if (!this.instance) {
+      this.instance = new AppSettingKV(context);
     }
-    return AppSettingKV.instance;
+    return this.instance;
   }
 
   // ----------------------------------------------------------
-  private IS_PRIVACY: string = 'key_is_privacy';
+  // 是否已经同意隐私协议
+  private IS_PRIVACY: string = 'key_agreed_user_privacy';
 
   public setUserPrivacy(value: boolean) {
     this._kvm.putBoolean(this.IS_PRIVACY, value)

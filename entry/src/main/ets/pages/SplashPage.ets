@@ -40,17 +40,18 @@ export struct SplashPage {
       }
     }, 1000)
     // 是否同意了用户隐私协议
-    AppSettingKV.getInstance(this.context).getUserPrivacy().then((firstOpen) => {
-      Logger.info('SplashPage aboutToAppear 首次打开app ？ ' + firstOpen)
-      if (firstOpen === true) {
-        this.dialogController.open();
-      } else {
-        // 开启定时器：3秒后自动跳转
-        this.timerId = setTimeout(() => {
-          this.jumpHomePage();
-        }, 3000);
-      }
-    });
+    AppSettingKV.getInstance(this.context).getUserPrivacy()
+      .then((agreed) => {
+        Logger.info('SplashPage aboutToAppear 同意隐私协议 ？ ' + agreed)
+        if (agreed === true) {
+          // 开启定时器：3秒后自动跳转
+          this.timerId = setTimeout(() => {
+            this.jumpHomePage();
+          }, 3000);
+        } else {
+          this.dialogController.open();
+        }
+      });
   }
 
   jumpHomePage() {
