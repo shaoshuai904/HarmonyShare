@@ -1,5 +1,7 @@
 import { DetailListComponent } from '../view/DetailListComponent';
 import { BackTitleBar } from '../view/BackTitleBar';
+import SwiperComponent from '../view/SwiperComponent';
+import Logger from '../utils/Logger';
 
 /**
  * Feed 页面.
@@ -12,6 +14,11 @@ export struct FeedPage {
   build() {
     Column() {
       BackTitleBar({ title: this.titleParam })
+      SwiperComponent({
+        onClickItem: (item: Resource, index: number) => {
+          Logger.debug('onClickItem::: ' + item.id + "  " + index);
+        }
+      })
       DetailListComponent()
     }
     .width('100%')
