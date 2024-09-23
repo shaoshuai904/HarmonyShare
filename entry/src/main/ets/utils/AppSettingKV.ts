@@ -38,11 +38,11 @@ export class AppSettingKV {
   // 是否已经同意隐私协议
   private IS_PRIVACY: string = 'key_agreed_user_privacy';
 
-  public setUserPrivacy(value: boolean) {
+  async setUserPrivacy(value: boolean) {
     this._kvm.putBoolean(this.IS_PRIVACY, value)
   }
 
-  public getUserPrivacy(): Promise<boolean> {
+  getUserPrivacy(): Promise<boolean> {
     return this._kvm.getBoolean(this.IS_PRIVACY, false);
   }
 }

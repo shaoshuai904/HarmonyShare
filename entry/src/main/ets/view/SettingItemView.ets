@@ -1,7 +1,7 @@
 /**
  * 设置项 item
  */
-@Entry
+// @Entry
 @Component
 export struct SettingItemView {
   // @Prop

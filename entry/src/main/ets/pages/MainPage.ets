@@ -6,6 +6,7 @@ import { VideoPage } from './VideoPage';
 import { DiscoverPage } from './DiscoverPage';
 import { MessagePage } from './MessagePage';
 import { MePage } from './MePage';
+import { WebPage } from './WebPage';
 
 /**
  * 程序主页面
@@ -47,7 +48,7 @@ struct MainPage {
                   } else if (item.index === 1) {
                     VideoPage()
                   } else if (item.index === 2) {
-                    DiscoverPage()
+                    WebPage()
                   } else if (item.index === 3) {
                     MessagePage()
                   } else {
